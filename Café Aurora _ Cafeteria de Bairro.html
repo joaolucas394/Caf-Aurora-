@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Café Aurora | Cafeteria de Bairro</title>
+<meta name="description" content="Cafeteria de bairro com cafés especiais, bebidas geladas e pão de queijo assado na hora. Rua das Acácias, 245 – Jardim Primavera.">
+<meta name="theme-color" content="#FAF6F0">
+<meta property="og:title" content="Café Aurora | Cafeteria de Bairro">
+<meta property="og:description" content="Cafés especiais, bebidas geladas e acompanhamentos assados na hora.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"CafeOrCoffeeShop","name":"Café Aurora","telephone":"+55-65-99999-0000","email":"contato@cafeaurora.com.br","address":{"@type":"PostalAddress","streetAddress":"Rua das Acácias, 245","addressLocality":"Jardim Primavera","addressCountry":"BR"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"07:30","closes":"19:30"}]}
+</script>
+<style>
+:root {
+  --bg-primary: #FAF6F0;
+  --bg-secondary: #EFE6D8;
+  --surface: #FFFFFF;
+  --text-dark: #2C221E;
+  --text-muted: #5C4B43;
+  --border: #E5DCD0;
+  --accent: #A85629;        /* contraste ≥ 5:1 com branco */
+  --accent-hover: #8F4621;
+  --on-accent: #FFFFFF;
+  --footer-bg: #2C221E;
+  --footer-text: #EFE6D8;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg-primary: #1A1411; --bg-secondary: #241B16; --surface: #2C221E;
+    --text-dark: #F3EAE0; --text-muted: #CBB9AC; --border: #3E3029;
+    --accent: #E0915F; --accent-hover: #EBA47A; --on-accent: #1E1612;
+    --footer-bg: #120D0B; --footer-text: #CBB9AC;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg-primary: #1A1411; --bg-secondary: #241B16; --surface: #2C221E;
+  --text-dark: #F3EAE0; --text-muted: #CBB9AC; --border: #3E3029;
+  --accent: #E0915F; --accent-hover: #EBA47A; --on-accent: #1E1612;
+  --footer-bg: #120D0B; --footer-text: #CBB9AC;
+  color-scheme: dark;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(80px + env(safe-area-inset-top, 0px));
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn { transition: none; }
+}
+body { color: var(--text-dark); background-color: var(--bg-primary); }
+
+a:focus-visible, .btn:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.skip-link {
+  position: absolute; left: 1rem; top: -100px; z-index: 200;
+  background: var(--accent); color: var(--on-accent);
+  padding: 0.6rem 1rem; border-radius: 6px; text-decoration: none; font-weight: 600;
+}
+.skip-link:focus { top: calc(0.5rem + env(safe-area-inset-top, 0px)); }
+
+.container { width: 90%; max-width: 1000px; margin: 0 auto; }
+section { padding: 4.5rem 0; }
+
+h2 { font-size: 2rem; margin-bottom: 1rem; text-align: center; }
+.section-subtitle {
+  text-align: center; color: var(--text-muted);
+  max-width: 600px; margin: 0 auto 3rem; font-size: 1.05rem;
+}
+
+.btn {
+  display: inline-block; background-color: var(--accent); color: var(--on-accent);
+  padding: 0.9rem 1.8rem; border-radius: 6px; text-decoration: none;
+  font-weight: 600; font-size: 1rem;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.btn:hover { background-color: var(--accent-hover); transform: translateY(-2px); }
+.btn-outline {
+  background: transparent; color: var(--accent); border: 2px solid var(--accent);
+  padding: 0.75rem 1.6rem;
+}
+.btn-outline:hover { background: var(--accent); color: var(--on-accent); }
+
+/* Cabeçalho */
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+  background: var(--surface); z-index: 10;
+}
+header {
+  background-color: var(--surface); border-bottom: 1px solid var(--border);
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 100;
+}
+.header-content { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
+.logo { font-size: 1.5rem; font-weight: 700; color: var(--text-dark); text-decoration: none; letter-spacing: -0.5px; }
+.logo span { color: var(--accent); }
+nav ul { list-style: none; display: flex; gap: 0.5rem; }
+nav a {
+  display: block; padding: 0.6rem 0.6rem; text-decoration: none;
+  color: var(--text-dark); font-weight: 500; font-size: 0.95rem; transition: color 0.2s ease;
+}
+nav a:hover { color: var(--accent); }
+
+/* Hero */
+.hero { background-color: var(--bg-secondary); text-align: center; padding: 6rem 0; }
+.hero h1 { font-size: 2.6rem; line-height: 1.2; margin: 0 auto 1.2rem; max-width: 750px; }
+.hero p { font-size: 1.15rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 2rem; }
+
+/* Sobre */
+.sobre-content { max-width: 720px; margin: 0 auto; text-align: center; font-size: 1.1rem; color: var(--text-muted); }
+.sobre-content p + p { margin-top: 1rem; }
+
+/* Produtos */
+.produtos { background-color: var(--bg-secondary); }
+.grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+.card {
+  background-color: var(--surface); padding: 2rem; border-radius: 8px;
+  border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: space-between;
+}
+.card h3 { font-size: 1.3rem; margin-bottom: 0.6rem; }
+.card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.2rem; }
+.preco { font-weight: 700; color: var(--accent); font-size: 1.1rem; }
+.cardapio-cta { text-align: center; margin-top: 2.5rem; }
+
+/* Diferenciais */
+.diferenciais-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; text-align: center; }
+.diferencial-item { background-color: var(--surface); padding: 1.8rem 1.2rem; border-radius: 8px; border: 1px solid var(--border); }
+.diferencial-item h3 { font-size: 1.15rem; color: var(--accent); margin-bottom: 0.5rem; }
+.diferencial-item p { font-size: 0.95rem; color: var(--text-muted); }
+
+/* Contato */
+.contato { background-color: var(--bg-secondary); text-align: center; }
+.contato-box {
+  background-color: var(--surface); max-width: 600px; margin: 0 auto;
+  padding: 2.5rem 2rem; border-radius: 8px; border: 1px solid var(--border);
+}
+.contato-info { margin: 0 0 2rem; font-size: 1.05rem; }
+.contato-info p { margin-bottom: 0.5rem; }
+.contato-info a { color: var(--accent); font-weight: 600; text-underline-offset: 3px; }
+.contato-info a:hover { color: var(--accent-hover); }
+.contato-acoes { display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; }
+
+/* Rodapé */
+footer {
+  background-color: var(--footer-bg); color: var(--footer-text);
+  text-align: center; padding: 2rem 0 calc(2rem + env(safe-area-inset-bottom, 0px)); font-size: 0.9rem;
+}
+footer strong { color: var(--text-dark); }
+:root:not([data-theme="dark"]) footer strong { color: #FFFFFF; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) footer strong { color: var(--text-dark); } }
+
+@media (max-width: 650px) {
+  .header-content { flex-direction: column; gap: 0.4rem; }
+  nav ul { flex-wrap: wrap; justify-content: center; }
+  nav a { padding: 0.6rem 0.7rem; }
+  .hero { padding: 4rem 0; }
+  .hero h1 { font-size: 2rem; }
+  section { padding: 3.5rem 0; }
+  html { scroll-padding-top: calc(120px + env(safe-area-inset-top, 0px)); }
+}
+</style>
+</head>
+<body>
+
+<a href="#conteudo" class="skip-link">Pular para o conteúdo</a>
+
+<header>
+  <div class="container header-content">
+    <a href="#inicio" class="logo">Café <span>Aurora</span></a>
+    <nav aria-label="Menu principal">
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#produtos">Produtos</a></li>
+        <li><a href="#diferenciais">Diferenciais</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+  <section id="inicio" class="hero">
+    <div class="container">
+      <h1>O aroma do café fresco para começar bem o seu dia</h1>
+      <p>Cafés especiais, bebidas geladas refrescantes e acompanhamentos assados na hora no coração do seu bairro.</p>
+      <a href="#contato" class="btn">Venha nos visitar</a>
+    </div>
+  </section>
+
+  <section id="sobre">
+    <div class="container">
+      <h2>Sobre o Café Aurora</h2>
+      <div class="sobre-content">
+        <p>Nascemos com o propósito de ser o ponto de encontro acolhedor da vizinhança. No Café Aurora, acreditamos que uma boa xícara de café tem o poder de desacelerar a rotina e aproximar pessoas.</p>
+        <p>Oferecemos grãos selecionados de pequenos produtores, bebidas geladas artesanais e receitas caseiras preparadas diariamente para acompanhar suas pausas, reuniões ou momentos de leitura.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="produtos" class="produtos">
+    <div class="container">
+      <h2>Destaques do Cardápio</h2>
+      <p class="section-subtitle">Algumas das opções favoritas dos nossos clientes, preparadas todos os dias com carinho.</p>
+
+      <div class="grid-cards">
+        <article class="card">
+          <div>
+            <h3>Café Expresso Aurora</h3>
+            <p>Extração encorpada de grãos 100% arábica com notas suaves de chocolate e caramelo.</p>
+          </div>
+          <span class="preco">R$ 7,50</span>
+        </article>
+        <article class="card">
+          <div>
+            <h3>Cappuccino Cremoso</h3>
+            <p>Equilíbrio perfeito entre expresso intenso, leite vaporizado na temperatura ideal e um toque de cacau.</p>
+          </div>
+          <span class="preco">R$ 12,00</span>
+        </article>
+        <article class="card">
+          <div>
+            <h3>Iced Latte Baunilha</h3>
+            <p>Bebida gelada refrescante feita com café expresso, leite gelado, gelo e xarope artesanal de baunilha.</p>
+          </div>
+          <span class="preco">R$ 14,50</span>
+        </article>
+        <article class="card">
+          <div>
+            <h3>Pão de Queijo da Casa</h3>
+            <p>Receita tradicional mineira assada de hora em hora. Crocante por fora e macio por dentro.</p>
+          </div>
+          <span class="preco">R$ 6,50</span>
+        </article>
+      </div>
+
+      <div class="cardapio-cta">
+        <a class="btn btn-outline" href="https://wa.me/5565999990000?text=Ol%C3%A1!%20Gostaria%20de%20ver%20o%20card%C3%A1pio%20completo.">Peça o cardápio completo pelo WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="diferenciais">
+    <div class="container">
+      <h2>Por que escolher o Café Aurora?</h2>
+      <p class="section-subtitle">Pequenos detalhes que transformam a sua visita em uma experiência memorável.</p>
+
+      <div class="diferenciais-list">
+        <div class="diferencial-item">
+          <h3>Preparo na hora</h3>
+          <p>Grãos moídos no momento do pedido e acompanhamentos sempre quentinhos.</p>
+        </div>
+        <div class="diferencial-item">
+          <h3>Ambiente aconchegante</h3>
+          <p>Espaço tranquilo, iluminação quente e Wi-Fi gratuito para trabalhar ou relaxar.</p>
+        </div>
+        <div class="diferencial-item">
+          <h3>Atendimento próximo</h3>
+          <p>Recebemos cada visitante pelo nome, com recomendações feitas para o seu paladar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="contato">
+    <div class="container">
+      <h2>Faça uma visita ou fale conosco</h2>
+      <p class="section-subtitle">Estamos de portas abertas esperando por você. Entre em contato para encomendas ou dúvidas.</p>
+
+      <div class="contato-box">
+        <div class="contato-info">
+          <p><strong>Endereço:</strong> <a href="https://www.google.com/maps/search/?api=1&amp;query=Rua+das+Ac%C3%A1cias%2C+245+Jardim+Primavera" target="_blank" rel="noopener">Rua das Acácias, 245 – Jardim Primavera</a></p>
+          <p><strong>Horário:</strong> Segunda a sábado, das 07h30 às 19h30 (domingo: fechado)</p>
+          <p><strong>Telefone / WhatsApp:</strong> <a href="https://wa.me/5565999990000" target="_blank" rel="noopener">(65) 99999-0000</a></p>
+          <p><strong>E-mail:</strong> <a href="mailto:contato@cafeaurora.com.br">contato@cafeaurora.com.br</a></p>
+        </div>
+        <div class="contato-acoes">
+          <a href="https://wa.me/5565999990000" class="btn" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+          <a href="mailto:contato@cafeaurora.com.br?subject=Contato%20via%20Site%20-%20Caf%C3%A9%20Aurora" class="btn btn-outline">Enviar e-mail</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p><strong>Café Aurora</strong> © <span id="ano">2026</span> — Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('ano').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
